@@ -1,0 +1,21 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+.header h2{
+    margin: 0;
+}
+.header select{
+    height: fit-content;
+    padding:0.5rem;
+    cursor: pointer;
+    border:none;
+}
+.cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    padding:0.5rem;
+    justify-content: center;
+    gap:1rem;
+}

@@ -1,0 +1,31 @@
+.card{
+    height: 30vh;
+    width: 18vw;
+    cursor: pointer;
+}
+.header{
+    background-color: red;
+    height:70%;
+    width:90%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    border-radius: 10px;
+}
+.chip{
+    position: absolute;
+    background-color: white;
+    left:0;
+    margin: 0.5rem;
+    padding: 0.2rem;
+    border-radius: 8px;
+}
+.cardFooter p{
+    margin: 0;
+    text-align: left;
+    color:grey;
+}
+.cardFooter h2{
+    margin: 0;;
+    text-align: left;
+}
