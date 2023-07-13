@@ -7,7 +7,8 @@ export const Form=({title,onSubmit})=>{
         name:"",
         email:""
     }
-    const [formData, setFormData] = useState();
+    // eslint-disable-next-line
+    const [formData, setFormData] = useState({...initialData});
     const submitHandler=(e)=>{
         e.preventDefault();
         onSubmit();
