@@ -4,6 +4,7 @@ import { useData } from "../../context/dataContext"
 import homeCSS from "./home.module.css";
 
 export const Home=()=>{
+    document.title="Meetup | Home"
     const {dataState, dispatch}=useData();
     console.log(dataState)
     return <>
