@@ -8,14 +8,18 @@ import { Form } from "../../components/form/form";
 
 export const EventPage = () => {
   const { eventId } = useParams();
-  const { dataState } = useData();
+  const { dataState,dispatch} = useData();
   const event = dataState?.data?.find(({ id }) => id === eventId);
   const [showModal,setShowModal]=useState(false)
   console.log(event);
   document.title = `Meetup | ${event?.title}`;
+  const onSubmit=()=>{
+    dispatch({type:"PAYMENT",payload:event?.id});
+    setShowModal(false);
+}
   return (
     <div className={pageCSS.container}>
-        {showModal && <Modal children={<Form title={"Complete your RVSP"}/>} onModalClose={()=>setShowModal(false)}/>}
+        {showModal && <Modal children={<Form title={"Complete your RVSP"} onSubmit={onSubmit}/>} onModalClose={()=>setShowModal(false)}/>}
       <div className={pageCSS.details}>
         <h1>{event.title}</h1>
         <div className={pageCSS.hostDetails}>
