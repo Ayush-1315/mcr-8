@@ -1,6 +1,6 @@
 .container{
     display: flex;
-    width: 100vw;
+    width: 94vw;
     justify-content: space-between;
 }
 .details{
@@ -9,10 +9,12 @@
     text-align: left;
 }
 .moreInfo{
-    width: 40%;
+    width: 30%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start ;
+    padding:10rem 0;
+    gap:3rem;
 }
 .image{
     width:30rem;
@@ -59,4 +61,14 @@ border-radius: 50%;
 }
 .speakerProfile p,.speakerProfile h3{
     margin: 0;
+}
+.moreInfo button{
+    background-color: #F55858;
+    width: fit-content;
+    padding:0.5rem 3rem;
+    margin: auto;
+    color: white;
+    border:none;
+    border-radius: 8px;
+    cursor: pointer;
 }

@@ -18,7 +18,7 @@ export const Home=()=>{
     </select>
     </div>
     <div className={homeCSS.cardContainer}>
-        {dataState?.filteredData?.map((event,index)=><EventCard data={event} key={index}/>)}
+        {dataState?.filteredData?.length===0?<h2>Nothing Matches your Search</h2>:dataState?.filteredData?.map((event,index)=><EventCard data={event} key={index}/>)}
     </div>
     </>
 }

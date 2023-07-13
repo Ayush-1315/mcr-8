@@ -8,18 +8,23 @@ import { Form } from "../../components/form/form";
 
 export const EventPage = () => {
   const { eventId } = useParams();
-  const { dataState,dispatch} = useData();
+  const { dataState, dispatch } = useData();
   const event = dataState?.data?.find(({ id }) => id === eventId);
-  const [showModal,setShowModal]=useState(false)
+  const [showModal, setShowModal] = useState(false);
   console.log(event);
   document.title = `Meetup | ${event?.title}`;
-  const onSubmit=()=>{
-    dispatch({type:"PAYMENT",payload:event?.id});
+  const onSubmit = () => {
+    dispatch({ type: "PAYMENT", payload: event?.id });
     setShowModal(false);
-}
+  };
   return (
     <div className={pageCSS.container}>
-        {showModal && <Modal children={<Form title={"Complete your RVSP"} onSubmit={onSubmit}/>} onModalClose={()=>setShowModal(false)}/>}
+      {showModal && (
+        <Modal
+          children={<Form title={"Complete your RVSP"} onSubmit={onSubmit} />}
+          onModalClose={() => setShowModal(false)}
+        />
+      )}
       <div className={pageCSS.details}>
         <h1>{event.title}</h1>
         <div className={pageCSS.hostDetails}>
@@ -70,17 +75,27 @@ export const EventPage = () => {
             <p>{event?.address}</p>
           </div>
         </div>
-        <div className={pageCSS.speakers}>
-            <h2>Speakers: {`(${event?.speakers?.length})`}</h2>
-            <div>
-                {event?.speakers?.map((speaker,index)=><div className={pageCSS?.speakerProfile} key={index}>
-                    <img src={speaker?.image} alt={speaker?.name} />
-                    <h3>{speaker?.designation}</h3>
-                    <p>{speaker?.name}</p>
-                </div>)}
-            </div>
+        <div className={pageCSS?.time}>
+          <span className="material-symbols-outlined">currency_rupee</span>
+          <div>
+            <p>{event?.price}</p>
+          </div>
         </div>
-        <button disabled={event?.isPaid} onClick={()=>setShowModal(true)}>{event?.isPaid?"Already RVSPed":"RVSP"}</button>
+        <div className={pageCSS.speakers}>
+          <h2>Speakers: {`(${event?.speakers?.length})`}</h2>
+          <div>
+            {event?.speakers?.map((speaker, index) => (
+              <div className={pageCSS?.speakerProfile} key={index}>
+                <img src={speaker?.image} alt={speaker?.name} />
+                <h3>{speaker?.designation}</h3>
+                <p>{speaker?.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <button disabled={event?.isPaid} onClick={() => setShowModal(true)}>
+          {event?.isPaid ? "Already RVSPed" : "RVSP"}
+        </button>
       </div>
     </div>
   );
