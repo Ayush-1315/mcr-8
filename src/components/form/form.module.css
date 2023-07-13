@@ -1,0 +1,24 @@
+.container {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .submitBtn {
+    background-color: blue;
+    display: block;
+    margin: auto;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem 0.8rem;
+    color: white;
+    border: none;
+    border-radius: 8px;
+  }
+  .label {
+    display: block;
+  }
+  .textField {
+    background-color: green;
+  }
+  
